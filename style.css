@@ -189,6 +189,37 @@ strong { color: var(--ink); }
 
 .cod-steps .num { color: var(--accent); font-weight: 700; }
 
+/* proses */
+
+.proses {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+  counter-reset: none;
+}
+
+.proses li {
+  background: var(--card);
+  border-top: 2px solid var(--accent);
+  padding: 20px;
+}
+
+.proses .num {
+  display: block;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.proses h3 { margin-bottom: 8px; }
+
+.proses p { margin: 0; color: var(--muted); }
+
 /* cards */
 
 .grid {
@@ -263,10 +294,12 @@ strong { color: var(--ink); }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
   .duo { grid-template-columns: repeat(2, 1fr); gap: 48px; }
+  .proses { grid-template-columns: repeat(2, 1fr); }
   .cod-steps { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1000px) {
   .grid { grid-template-columns: repeat(3, 1fr); }
   .cod-steps { grid-template-columns: repeat(4, 1fr); }
+  .proses { grid-template-columns: repeat(4, 1fr); }
 }
