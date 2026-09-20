@@ -238,6 +238,8 @@ strong { color: var(--ink); }
 
 .card-highlight { border-color: var(--accent); }
 
+.h3-sub { margin-top: 22px; }
+
 .duo {
   display: grid;
   gap: 32px;
