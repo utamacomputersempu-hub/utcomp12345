@@ -56,6 +56,9 @@ strong { color: var(--ink); }
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--head);
   font-size: 22px;
   font-weight: 700;
@@ -64,7 +67,9 @@ strong { color: var(--ink); }
   color: var(--ink);
 }
 
-.brand span { color: var(--accent); }
+.brand-mark { width: 34px; height: 34px; display: block; }
+
+.brand-text span { color: var(--accent); }
 
 .topnav {
   display: flex;
@@ -307,6 +312,9 @@ strong { color: var(--ink); }
 }
 
 .brand-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--head);
   font-size: 20px;
   letter-spacing: 0.06em;
