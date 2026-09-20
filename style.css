@@ -240,6 +240,39 @@ strong { color: var(--ink); }
 
 .h3-sub { margin-top: 22px; }
 
+/* testimoni */
+
+.quote { margin: 0; display: flex; flex-direction: column; }
+
+.stars {
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+
+.quote blockquote {
+  margin: 0 0 16px;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.quote figcaption {
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.quote figcaption span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
 .duo {
   display: grid;
   gap: 32px;
