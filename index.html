@@ -22,6 +22,7 @@
   </a>
   <nav class="topnav">
     <a href="#cod">COD Cek Dulu</a>
+    <a href="#servis">Cek Servis</a>
     <a href="#etalase">Etalase</a>
     <a href="#layanan">Layanan</a>
     <a href="#pengadaan">Pengadaan</a>
@@ -41,7 +42,7 @@
       COD Cek Dulu se-Jawa &amp; Bali.
     </p>
     <p class="cta-row">
-      <a class="btn btn-primary" href="#cod">Lihat cara COD Cek Dulu</a>
+      <a class="btn btn-primary" href="#servis">Cek status servis</a>
       <a class="btn btn-ghost" href="#etalase">Lihat paket rakitan</a>
     </p>
     <p class="trustline">
@@ -68,6 +69,31 @@
     <p class="cta-row">
       <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">Chat admin untuk order COD Cek Dulu</a>
     </p>
+  </section>
+
+  <section id="servis" class="band band-panel">
+   <div class="wrap">
+    <h2>Nggak perlu nanya &ldquo;udah jadi belum?&rdquo;</h2>
+    <p class="lead">Masukin nomor servismu, lihat sendiri sampai mana pengerjaannya.</p>
+
+    <form id="form-servis" class="servis-form" novalidate>
+      <div class="isian">
+        <label for="srv">Kode servis</label>
+        <input id="srv" name="srv" type="text" inputmode="latin" autocomplete="off"
+               placeholder="UT260809002" maxlength="20" spellcheck="false">
+        <small>Ada di nota servismu.</small>
+      </div>
+      <div class="isian">
+        <label for="wa">4 digit terakhir WhatsApp</label>
+        <input id="wa" name="wa" type="text" inputmode="numeric" autocomplete="off"
+               placeholder="0342" maxlength="4" pattern="[0-9]{4}">
+        <small>Nomor yang kamu pakai waktu menyerahkan barang.</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Cek status</button>
+    </form>
+
+    <div id="servis-hasil" class="servis-wadah" aria-live="polite"></div>
+   </div>
   </section>
 
   <section id="etalase" class="band">

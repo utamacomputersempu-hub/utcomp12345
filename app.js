@@ -4,13 +4,20 @@ const API_KEY = 'utc_pub_k7m2xq9vz4n8b3rf';
 
 const WA_UMUM = 'https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya';
 
+// Apps Script perlu 2-3 detik saat dingin. Batas ini memberi ruang untuk itu
+// tapi tetap menyerah sebelum pengunjung mengira halamannya mati.
+const BATAS_TUNGGU = 15000;
+const PESAN_LAMBAT = 'Jaringan lambat, coba lagi sebentar.';
+
+const LANGKAH = ['Diterima', 'Diperiksa', 'Dikerjakan', 'Selesai'];
+
 async function apiGet(params) {
   const url = new URL(API_BASE);
   url.searchParams.set('key', API_KEY);
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
 
   const ctrl = new AbortController();
-  const batas = setTimeout(() => ctrl.abort(), 15000);
+  const batas = setTimeout(() => ctrl.abort(), BATAS_TUNGGU);
   try {
     const res = await fetch(url, { signal: ctrl.signal });
     if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -26,6 +33,25 @@ function el(tag, className, text) {
   if (text != null) node.textContent = text;
   return node;
 }
+
+function tombolWa(teks) {
+  const a = el('a', 'btn btn-primary', teks);
+  a.href = WA_UMUM;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  const baris = el('p', 'cta-row');
+  baris.append(a);
+  return baris;
+}
+
+function blokMemuat(teks) {
+  const bungkus = el('p', 'memuat mono');
+  bungkus.append(el('span', 'spinner'));
+  bungkus.append(el('span', null, teks));
+  return bungkus;
+}
+
+// ---------- Etalase ----------
 
 function formatHarga(nilai) {
   const angka = Number(nilai);
@@ -60,13 +86,7 @@ function kartuProduk(item) {
 function pesanEtalase(teks) {
   const bungkus = el('div', 'etalase-pesan');
   bungkus.append(el('p', 'mono', teks));
-  const tombol = el('a', 'btn btn-primary', 'Chat admin buat tanya stok');
-  tombol.href = WA_UMUM;
-  tombol.target = '_blank';
-  tombol.rel = 'noopener';
-  const baris = el('p', 'cta-row');
-  baris.append(tombol);
-  bungkus.append(baris);
+  bungkus.append(tombolWa('Chat admin buat tanya stok'));
   return bungkus;
 }
 
@@ -100,13 +120,129 @@ async function muatEtalase() {
   const wadah = document.getElementById('etalase-isi');
   if (!wadah) return;
 
+  wadah.replaceChildren(blokMemuat('Memuat daftar rakitan…'));
+
   try {
     const data = await apiGet({ action: 'etalase' });
     if (!data.ok) throw new Error(data.error || 'Gagal memuat');
     gambarEtalase(Array.isArray(data.items) ? data.items : [], wadah);
   } catch (err) {
-    wadah.replaceChildren(pesanEtalase('Daftar rakitan belum bisa dimuat sekarang. Chat saja admin, speknya kami susunkan langsung.'));
+    const teks = err.name === 'AbortError'
+      ? PESAN_LAMBAT
+      : 'Daftar rakitan belum bisa dimuat sekarang. Chat saja admin, speknya kami susunkan langsung.';
+    wadah.replaceChildren(pesanEtalase(teks));
   }
 }
 
+// ---------- Cek status servis ----------
+
+function barisDetail(label, nilai) {
+  if (!nilai) return null;
+  const baris = el('div', 'detail-baris');
+  baris.append(el('dt', null, label));
+  baris.append(el('dd', null, nilai));
+  return baris;
+}
+
+function garisWaktu(langkah) {
+  const daftar = el('ol', 'timeline');
+  LANGKAH.forEach((nama, i) => {
+    const nomor = i + 1;
+    const item = el('li', nomor < langkah ? 'lewat' : nomor === langkah ? 'aktif' : null);
+    item.append(el('span', 'tl-num', String(nomor).padStart(2, '0')));
+    item.append(el('span', 'tl-nama', nama));
+    if (nomor === langkah) item.append(el('span', 'tl-tanda', 'sekarang'));
+    daftar.append(item);
+  });
+  return daftar;
+}
+
+function hasilServis(servis) {
+  const kotak = el('div', 'servis-hasil');
+
+  kotak.append(el('p', 'servis-kode mono', servis.kode || ''));
+
+  const langkah = Number(servis.langkah);
+  if (langkah === 0) {
+    kotak.append(el('p', 'servis-batal', 'Servis ini dibatalkan.'));
+  } else if (Number.isFinite(langkah) && langkah >= 1 && langkah <= LANGKAH.length) {
+    kotak.append(garisWaktu(langkah));
+  }
+
+  if (servis.pesan) kotak.append(el('p', 'servis-pesan', servis.pesan));
+
+  const detail = el('dl', 'servis-detail mono');
+  for (const [label, nilai] of [
+    ['Perangkat', servis.perangkat],
+    ['Merk', servis.merk],
+    ['Keluhan', servis.keluhan],
+    ['Status', servis.status],
+    ['Teknisi', servis.teknisi],
+    ['Masuk', servis.tglMasuk],
+    ['Selesai', servis.tglSelesai],
+  ]) {
+    const baris = barisDetail(label, nilai);
+    if (baris) detail.append(baris);
+  }
+  if (detail.childElementCount) kotak.append(detail);
+
+  kotak.append(tombolWa('Tanya lewat WhatsApp'));
+  return kotak;
+}
+
+function pesanServis(teks) {
+  const kotak = el('div', 'servis-gagal');
+  kotak.append(el('p', null, teks));
+  return kotak;
+}
+
+function siapkanCekServis() {
+  const form = document.getElementById('form-servis');
+  if (!form) return;
+
+  const wadah = document.getElementById('servis-hasil');
+  const tombol = form.querySelector('button[type="submit"]');
+  const labelTombol = tombol.textContent;
+  let berjalan = false;
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    if (berjalan) return;
+
+    const kode = form.elements.srv.value.trim().toUpperCase();
+    const wa = form.elements.wa.value.trim();
+
+    // Dicegat di sini supaya percobaan yang jelas belum lengkap tidak ikut
+    // menghabiskan jatah 5 percobaan di server.
+    if (!kode || !/^\d{4}$/.test(wa)) {
+      wadah.replaceChildren(pesanServis('Isi nomor servis dan 4 digit terakhir nomor WhatsApp kamu dulu.'));
+      return;
+    }
+
+    berjalan = true;
+    tombol.disabled = true;
+    tombol.textContent = 'Mengecek…';
+    wadah.replaceChildren(blokMemuat('Mengecek status servis…'));
+
+    try {
+      const data = await apiGet({ action: 'cekServis', srv: kode, wa });
+      if (data.ok && data.servis) {
+        wadah.replaceChildren(hasilServis(data.servis));
+      } else {
+        // Pesan gagal dari server sengaja seragam. Tampilkan apa adanya.
+        wadah.replaceChildren(pesanServis(data.error || 'Data tidak ditemukan. Cek lagi nomor servis dan nomor WhatsApp kamu.'));
+      }
+    } catch (err) {
+      wadah.replaceChildren(pesanServis(
+        err.name === 'AbortError' ? PESAN_LAMBAT : 'Gagal menghubungi server. Coba lagi sebentar.'
+      ));
+    } finally {
+      berjalan = false;
+      tombol.disabled = false;
+      tombol.textContent = labelTombol;
+    }
+  });
+}
+
 muatEtalase();
+siapkanCekServis();
