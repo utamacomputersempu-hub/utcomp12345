@@ -244,5 +244,35 @@ function siapkanCekServis() {
   });
 }
 
+// ---------- Formulir yang menyusun pesan WhatsApp ----------
+
+// Tidak ada server di balik formulir ini. Isinya dirangkai jadi teks, lalu
+// dibuka lewat wa.me supaya pengunjung sendiri yang menekan kirim.
+function siapkanFormWa() {
+  const form = document.getElementById('form-wa');
+  if (!form) return;
+
+  const galat = document.getElementById('wa-galat');
+
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+
+    const nama = form.elements.nama.value.trim();
+    const topik = form.elements.topik.value;
+    const pesan = form.elements.pesan.value.trim();
+
+    if (!nama || !pesan) {
+      galat.textContent = 'Isi nama dan ceritakan keperluanmu dulu.';
+      galat.hidden = false;
+      return;
+    }
+    galat.hidden = true;
+
+    const teks = `Halo Utama Computer, saya ${nama}.\nKeperluan: ${topik}\n\n${pesan}`;
+    window.open(`https://wa.me/6285143111146?text=${encodeURIComponent(teks)}`, '_blank', 'noopener');
+  });
+}
+
 muatEtalase();
 siapkanCekServis();
+siapkanFormWa();

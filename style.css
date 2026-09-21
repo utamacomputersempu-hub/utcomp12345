@@ -716,6 +716,30 @@ strong { color: var(--tinta); }
 
 .marketplace a:hover { border-color: var(--biru); color: var(--biru-gelap); }
 
+.kontak-catatan { font-size: 14px; color: var(--redup); }
+
+.wa-form { display: grid; gap: 14px; margin-bottom: 8px; }
+
+.wa-form button { justify-self: start; }
+
+.wa-galat {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9a3412;
+}
+
+/* mozaik foto */
+
+.mozaik {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  margin-top: 28px;
+}
+
+.mozaik .besar .photo { aspect-ratio: 16 / 10; }
+
 /* footer */
 
 .footer {
@@ -764,7 +788,10 @@ strong { color: var(--tinta); }
   .servis-form button { height: 48px; }
   .timeline { grid-template-columns: repeat(4, 1fr); }
   .tl-tanda { display: none; }
-  .kontak-grid { grid-template-columns: 1.1fr 1fr; gap: 24px; }
+  .kontak-grid { grid-template-columns: 1fr 1.15fr; gap: 24px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .mozaik { grid-template-columns: repeat(2, 1fr); }
+  .mozaik .besar { grid-column: 1 / -1; }
 }
 
 @media (min-width: 1000px) {
@@ -775,6 +802,7 @@ strong { color: var(--tinta); }
     align-items: center;
   }
   .grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
   .layanan-grid { grid-template-columns: repeat(3, 1fr); }
   .proses { grid-template-columns: repeat(4, 1fr); }
   .cod-steps { grid-template-columns: repeat(4, 1fr); }
