@@ -75,7 +75,7 @@ function kartuProduk(item) {
   kartu.append(gambar);
 
   if (item.badge) kartu.append(el('p', 'badge', item.badge));
-  kartu.append(el('h3', null, item.judul || 'Tanpa judul'));
+  kartu.append(el('h4', null, item.judul || 'Tanpa judul'));
   if (item.spek) kartu.append(el('p', 'spek mono', item.spek));
   kartu.append(el('p', 'harga mono', formatHarga(item.hargaMulai)));
   if (item.catatan) kartu.append(el('p', 'catatan', item.catatan));

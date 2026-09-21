@@ -24,7 +24,7 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: var(--head);
   font-weight: 700;
   line-height: 1.05;
@@ -35,7 +35,7 @@ h1, h2, h3 {
 
 h1 { font-size: clamp(38px, 11vw, 76px); }
 h2 { font-size: clamp(27px, 7vw, 44px); }
-h3 { font-size: clamp(19px, 4.5vw, 24px); }
+h3, h4 { font-size: clamp(19px, 4.5vw, 24px); }
 
 p { margin: 0 0 16px; }
 
@@ -422,9 +422,9 @@ strong { color: var(--ink); }
 
 .produk .photo { border: 0; border-bottom: 1px solid var(--line); }
 
-.produk h3, .produk p { margin: 0 20px; }
+.produk h4, .produk p { margin: 0 20px; }
 
-.produk h3 { margin-top: 4px; }
+.produk h4 { margin-top: 4px; }
 
 .produk p:last-child { margin-bottom: 20px; }
 
