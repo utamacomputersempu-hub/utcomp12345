@@ -245,6 +245,53 @@ strong { color: var(--ink); }
 
 .h3-sub { margin-top: 22px; }
 
+/* etalase */
+
+.etalase-memuat { color: var(--muted); }
+
+.etalase-kelompok + .etalase-kelompok { margin-top: 36px; }
+
+.kategori {
+  font-size: 18px;
+  color: var(--muted);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.produk { display: flex; flex-direction: column; gap: 10px; padding: 0; }
+
+.produk .photo { border: 0; border-bottom: 1px solid var(--line); }
+
+.produk h3, .produk p { margin: 0 20px; }
+
+.produk h3 { margin-top: 4px; }
+
+.produk p:last-child { margin-bottom: 20px; }
+
+.produk .badge {
+  align-self: start;
+  margin: 0 0 0 20px;
+  padding: 3px 9px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.produk .spek { color: var(--muted); font-size: 13px; }
+
+.produk .harga { color: var(--accent); font-size: 17px; font-weight: 700; }
+
+.produk .catatan { color: var(--muted); font-size: 14px; }
+
+.etalase-pesan { border-left: 2px solid var(--accent); padding-left: 16px; }
+
+.etalase-pesan .mono { color: var(--muted); max-width: 54ch; }
+
 /* foto */
 
 .photos {
