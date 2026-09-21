@@ -139,10 +139,31 @@ function kartuProduk(item) {
   return kartu;
 }
 
+const LAPAK = [
+  ['Shopee', 'https://shopee.co.id/utcomputer'],
+  ['Tokopedia', 'https://tk.tokopedia.com/ZSaB3tubw/'],
+  ['TikTok Shop', 'https://vt.tiktok.com/ZSaB3gMnH/?page=Mall'],
+];
+
+// Daftar kosong bukan alasan menampilkan kotak hampa: arahkan ke admin dan
+// ke lapak yang stoknya memang sedang tayang di sana.
 function pesanEtalase(teks) {
   const bungkus = el('div', 'etalase-pesan');
-  bungkus.append(el('p', 'mono', teks));
+  bungkus.append(el('p', 'etalase-pesan-teks', teks));
   bungkus.append(tombolWa('Chat admin buat tanya stok'));
+
+  bungkus.append(el('p', 'etalase-lapak-judul', 'Atau lihat yang sedang tayang di lapak kami:'));
+  const daftar = el('ul', 'marketplace');
+  for (const [nama, url] of LAPAK) {
+    const li = el('li');
+    const a = el('a', null, nama);
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    li.append(a);
+    daftar.append(li);
+  }
+  bungkus.append(daftar);
   return bungkus;
 }
 

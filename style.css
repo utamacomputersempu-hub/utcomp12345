@@ -13,8 +13,9 @@
   --head: "Plus Jakarta Sans", system-ui, sans-serif;
   --body: "Plus Jakarta Sans", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, monospace;
-  --radius: 10px;
-  --bayang: 0 1px 2px rgba(15, 35, 48, 0.06), 0 8px 24px rgba(15, 35, 48, 0.06);
+  --radius: 12px;
+  --bayang: 0 1px 2px rgba(15, 35, 48, 0.05), 0 6px 18px rgba(15, 35, 48, 0.05);
+  --bayang-halus: 0 1px 2px rgba(15, 35, 48, 0.04);
 }
 
 * { box-sizing: border-box; }
@@ -181,21 +182,25 @@ strong { color: var(--tinta); }
 
 /* bands */
 
+/* Bagian melebar penuh, isinya tetap terpusat di 1100px. Ini yang
+   memungkinkan latar bergantian tanpa mengubah HTML tiap halaman. */
 .hero, .band {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 56px 16px;
+  padding: 56px max(16px, (100% - 1100px) / 2);
 }
 
-.band-panel { background: var(--kertas); max-width: none; }
+.band-panel > .wrap, .band-accent > .wrap { max-width: 1100px; margin: 0 auto; }
 
-.band-panel > .wrap { max-width: 1100px; margin: 0 auto; }
-
-.band-accent { background: var(--tint); max-width: none; }
-
-.band-accent > .wrap { max-width: 1100px; margin: 0 auto; }
+/* Irama latar: putih, abu sangat muda, putih. Bagian bertanda accent
+   selalu menang karena itu penekanan yang disengaja. */
+main > section { background: var(--putih); }
+main > section:nth-of-type(even) { background: var(--kertas); }
+main > section.band-accent { background: var(--tint); }
 
 .band-garis { border-top: 1px solid var(--garis); }
+
+/* jarak antar bagian lebih besar daripada jarak di dalam bagian */
+.band > h2, .band > .wrap > h2, .band > h1 { margin-bottom: 14px; }
+.band > .lead, .band > .wrap > .lead { margin-bottom: 32px; }
 
 /* hero */
 
@@ -311,11 +316,74 @@ strong { color: var(--tinta); }
   border: 1px solid var(--garis);
   border-radius: var(--radius);
   padding: 22px;
+  box-shadow: var(--bayang-halus);
 }
 
 .card p { margin: 0; color: var(--teks); }
 
 .card-highlight { border-color: var(--biru); box-shadow: var(--bayang); }
+
+/* ikon digambar inline sebagai SVG, bukan emoji dan bukan pustaka ikon */
+
+.ikon {
+  display: block;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  stroke: var(--biru);
+  stroke-width: 1.7;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ikon-kotak {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--tint);
+}
+
+/* daftar berikon */
+
+.poin-ikon { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+
+.poin-ikon li {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px 18px;
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: var(--radius);
+  box-shadow: var(--bayang-halus);
+}
+
+.poin-ikon strong { display: block; color: var(--tinta); font-size: 17px; }
+
+.poin-ikon span { color: var(--teks); font-size: 15.5px; }
+
+/* badge faktual */
+
+.badge-baris { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
+
+.badge-fakta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  background: var(--tint);
+  color: var(--biru-gelap);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.badge-fakta .ikon { width: 16px; height: 16px; stroke-width: 2.2; }
 
 /* kartu yang seluruhnya jadi tautan */
 
@@ -749,7 +817,15 @@ strong { color: var(--tinta); }
   max-width: 60ch;
 }
 
-.etalase-pesan .mono { color: var(--teks); font-family: var(--body); font-size: 16px; }
+.etalase-pesan-teks { color: var(--teks); font-size: 17px; max-width: 54ch; }
+
+.etalase-lapak-judul {
+  margin: 26px 0 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--garis);
+  font-size: 15px;
+  color: var(--redup);
+}
 
 /* foto */
 
@@ -944,8 +1020,7 @@ strong { color: var(--tinta); }
   .ajakan { grid-template-columns: 1fr auto; align-items: center; gap: 28px; }
   .dua-kolom { grid-template-columns: 1.15fr 1fr; gap: 32px; }
   .kontak-ringkas { grid-template-columns: 1fr auto; gap: 28px; }
-  .hero, .band { padding: 72px 24px; }
-  .band-panel, .band-accent { padding-left: 24px; padding-right: 24px; }
+  .hero, .band { padding: 84px max(24px, (100% - 1100px) / 2); }
   .footer { padding: 44px 24px 56px; }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .photos { grid-template-columns: repeat(2, 1fr); }
