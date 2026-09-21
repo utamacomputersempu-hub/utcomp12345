@@ -19,7 +19,8 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap">
+<meta name="theme-color" content="#0a8ebc">
 <link rel="stylesheet" href="style.css">
 <script src="app.js" defer></script>
 <script type="application/ld+json">
@@ -68,72 +69,62 @@
 <header class="topbar">
   <a class="brand" href="#">
     <img src="img/logo-mark.png" alt="" width="256" height="256" class="brand-mark">
-    <span class="brand-text">UTAMA<span>COMPUTER</span></span>
+    <span class="brand-text">Utama <span>Computer</span></span>
   </a>
   <nav class="topnav">
-    <a href="#cod">COD Cek Dulu</a>
     <a href="#servis">Cek Servis</a>
-    <a href="#etalase">Etalase</a>
     <a href="#layanan">Layanan</a>
+    <a href="#cod">COD Cek Dulu</a>
+    <a href="#etalase">Etalase</a>
     <a href="#pengadaan">Pengadaan</a>
-    <a href="#tukar-tambah">Tukar Tambah</a>
-    <a href="#proses">Proses</a>
-    <a href="#testimoni">Testimoni</a>
     <a href="#kontak">Kontak</a>
+    <a class="nav-wa" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">WhatsApp</a>
   </nav>
 </header>
 
 <main>
 
   <section class="hero">
+   <div class="hero-teks">
+    <span class="label">Toko komputer Sempu, Banyuwangi</span>
     <h1>Beli komputer tanpa takut zonk</h1>
     <p class="hero-sub">
-      Barang sampai, cek dulu 30 menit. Nggak sreg? Nggak usah bayar.<br>
+      Barang sampai, cek dulu 30 menit. Nggak sreg? Nggak usah bayar.
       COD Cek Dulu se-Jawa &amp; Bali.
     </p>
     <p class="cta-row">
-      <a class="btn btn-primary" href="#servis">Cek status servis</a>
-      <a class="btn btn-ghost" href="#etalase">Lihat paket rakitan</a>
+      <a class="btn btn-primary" href="#servis">Cek status servis saya</a>
+      <a class="btn btn-ghost" href="#layanan">Lihat layanan</a>
     </p>
-    <p class="trustline">
+    <ul class="trustline">
       <!-- DITULIS MANUAL. Rating dan jumlah ulasan di bawah ini disalin dari
            profil Google Business, diverifikasi 21 September 2026. Angkanya
            berubah sendiri tiap ada ulasan baru, jadi perbarui angka DAN
            keterangan bulannya bersamaan. Jangan pernah menyalin angka ini ke
            JSON-LD: rating yang ditulis sendiri ke data terstruktur melanggar
            pedoman Google. -->
-      <span>&#9733;
+      <li>&#9733;
         <a href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener">4,9 dari 27 ulasan Google</a>
         (per September 2026)
-      </span>
-      <span>Jambewangi (Panjen), Sempu</span>
-      <span>Buka tiap hari 08.30&ndash;16.30</span>
-      <span>CV resmi &amp; Siplah support</span>
-    </p>
+      </li>
+      <li>Jambewangi (Panjen), Sempu</li>
+      <li>Buka tiap hari 08.30&ndash;16.30</li>
+      <li>CV resmi &amp; Siplah support</li>
+    </ul>
+   </div>
+   <figure class="hero-foto">
+     <img src="img/toko-depan.jpg" alt="Tampak depan toko Utama Computer dengan etalase dan rak CPU terlihat dari luar" width="675" height="900">
+   </figure>
   </section>
 
-  <section id="cod" class="band band-accent">
-    <h2>Cek dulu, baru bayar. Sesederhana itu.</h2>
-    <p class="lead">
-      Kurir datang, kamu buka dusnya, nyalakan, coba. Ada 30 menit buat memastikan.
-      Cocok, baru keluar uang. Ada masalah, langsung kami tangani.
-    </p>
-    <ol class="cod-steps">
-      <li><span class="num">01</span> Kurir datang bawa barangnya</li>
-      <li><span class="num">02</span> Buka dus, nyalakan, coba</li>
-      <li><span class="num">03</span> 30 menit buat memastikan</li>
-      <li><span class="num">04</span> Cocok, baru keluar uang</li>
-    </ol>
-    <p class="note">Maksimal 1 set komputer (PC + monitor + kelengkapan). Berlaku Pulau Jawa &amp; Bali.</p>
-    <p class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">Chat admin untuk order COD Cek Dulu</a>
-    </p>
-  </section>
-
-  <section id="servis" class="band band-panel">
+  <section id="servis" class="band band-accent">
    <div class="wrap">
-    <h2>Nggak perlu nanya &ldquo;udah jadi belum?&rdquo;</h2>
-    <p class="lead">Masukin nomor servismu, lihat sendiri sampai mana pengerjaannya.</p>
+    <span class="label">Cuma ada di sini</span>
+    <h2>Lacak servismu sendiri, tanpa nunggu dibalas chat</h2>
+    <p class="lead">
+      Masukin kode servis dari notamu, langsung kelihatan sampai mana pengerjaannya.
+      Bisa dicek kapan saja, termasuk di luar jam buka toko.
+    </p>
 
     <form id="form-servis" class="servis-form" novalidate>
       <div class="isian">
@@ -155,6 +146,24 @@
    </div>
   </section>
 
+  <section id="cod" class="band band-accent">
+    <h2>Cek dulu, baru bayar. Sesederhana itu.</h2>
+    <p class="lead">
+      Kurir datang, kamu buka dusnya, nyalakan, coba. Ada 30 menit buat memastikan.
+      Cocok, baru keluar uang. Ada masalah, langsung kami tangani.
+    </p>
+    <ol class="cod-steps">
+      <li><span class="num">01</span> Kurir datang bawa barangnya</li>
+      <li><span class="num">02</span> Buka dus, nyalakan, coba</li>
+      <li><span class="num">03</span> 30 menit buat memastikan</li>
+      <li><span class="num">04</span> Cocok, baru keluar uang</li>
+    </ol>
+    <p class="note">Maksimal 1 set komputer (PC + monitor + kelengkapan). Berlaku Pulau Jawa &amp; Bali.</p>
+    <p class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">Chat admin untuk order COD Cek Dulu</a>
+    </p>
+  </section>
+
   <section id="etalase" class="band">
     <h2>Sebut budget-nya, kami susun speknya</h2>
     <p class="lead">
@@ -167,32 +176,77 @@
   </section>
 
   <section id="layanan" class="band">
+    <span class="label">Yang kami kerjakan</span>
     <h2>Layanan</h2>
-    <div class="grid">
-      <article class="card">
+    <p class="lead">Semua dikerjakan di bengkel sendiri di Jl. Keramat, Panjen. Harga disebut sebelum dikerjakan.</p>
+    <div class="layanan-grid">
+
+      <article class="card layanan">
+        <span class="pita">Ada nomor tiket</span>
+        <h3>Servis laptop &amp; PC, semua merk</h3>
+        <ul class="poin">
+          <li>Didiagnosa dulu, biayanya disebut sebelum apa pun dikerjakan</li>
+          <li>Dapat kode servis untuk dilacak sendiri dari rumah</li>
+          <li>Garansi tertulis di nota, bukan janji lisan</li>
+        </ul>
+        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
+           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20SERVIS.%0APerangkat%3A%20%28Laptop%2FPC%29%0AMerk%3A%20%0AKeluhan%3A%20">Konsultasi servis</a>
+      </article>
+
+      <article class="card layanan">
+        <span class="pita">Jawa &amp; Bali</span>
         <h3>Rakit PC sesuai budget kamu</h3>
-        <p>Sebutkan angkanya, kami susunkan speknya. Kamu yang pegang kendali.</p>
+        <ul class="poin">
+          <li>Sebutkan angkanya, speknya kami susunkan</li>
+          <li>Komponen bisa digeser naik-turun sesuai kebutuhan</li>
+          <li>Bisa dikirim dengan COD Cek Dulu, cek barangnya sebelum bayar</li>
+        </ul>
+        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
+           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20RAKIT%20PC.%0ABudget%3A%20%0APemakaian%3A%20%28office%2Fgaming%2Fediting%2Fkasir%29">Minta susunan spek</a>
       </article>
-      <article class="card">
-        <h3>Servis semua merk</h3>
-        <p>Didiagnosa dulu, harga disebut, baru dieksekusi. Nggak ada tagihan kejutan.</p>
+
+      <article class="card layanan">
+        <h3>Laptop baru &amp; second</h3>
+        <ul class="poin">
+          <li>Dicek dan disiapkan dulu sebelum diserahkan</li>
+          <li>Bisa dinyalakan dan dicoba langsung di toko</li>
+          <li>Bisa COD Cek Dulu kalau dikirim ke luar kota</li>
+        </ul>
+        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
+           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20LAPTOP.%0AKebutuhan%3A%20%0ABudget%3A%20">Tanya stok laptop</a>
       </article>
-      <article class="card">
+
+      <article class="card layanan">
         <h3>Upgrade tanpa ganti semua</h3>
-        <p>Sering kali cukup tambah RAM atau pindah ke SSD. Kami bilang apa adanya kalau belum perlu.</p>
+        <ul class="poin">
+          <li>Sering kali cukup tambah RAM atau pindah ke SSD</li>
+          <li>Kami bilang apa adanya kalau memang belum perlu diupgrade</li>
+        </ul>
+        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
+           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20UPGRADE.%0APerangkat%3A%20%0ASpek%20sekarang%3A%20">Tanya upgrade</a>
       </article>
-      <article class="card">
+
+      <article class="card layanan">
         <h3>Sparepart harga terbuka</h3>
-        <p>Barangnya bisa kamu lihat langsung di toko sebelum dipasang.</p>
+        <ul class="poin">
+          <li>Barangnya bisa dilihat langsung di toko sebelum dipasang</li>
+          <li>Harga disebut di depan, tidak ada tagihan kejutan</li>
+        </ul>
+        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
+           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20SPAREPART.%0ABarang%3A%20%0AUntuk%20perangkat%3A%20">Tanya sparepart</a>
       </article>
-      <article class="card">
-        <h3>Laptop baru &amp; second berkualitas</h3>
-        <p>Dicek dan disiapkan dulu sebelum diserahkan, bukan sekadar diambilkan dari dus.</p>
+
+      <article class="card layanan">
+        <h3>CCTV &amp; proyektor, dipasang sampai nyala</h3>
+        <ul class="poin">
+          <li>CCTV rumah, kantor, dan perumahan</li>
+          <li>Proyektor dan LCD untuk ruang meeting</li>
+          <li>Bukan cuma dijual, kami yang memasang</li>
+        </ul>
+        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
+           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20CCTV%2FPROYEKTOR.%0ALokasi%20pemasangan%3A%20%0AKebutuhan%3A%20">Tanya pemasangan</a>
       </article>
-      <article class="card card-highlight">
-        <h3>Kami nggak cuma jual. Kami pasang sampai nyala.</h3>
-        <p>CCTV rumah, kantor, perumahan. Proyektor dan LCD ruang meeting.</p>
-      </article>
+
     </div>
     <div class="photos">
       <figure class="shot">
