@@ -76,7 +76,7 @@ function kartuProduk(item) {
 
   if (item.badge) kartu.append(el('p', 'badge', item.badge));
   kartu.append(el('h4', null, item.judul || 'Tanpa judul'));
-  if (item.spek) kartu.append(el('p', 'spek mono', item.spek));
+  if (item.spek) kartu.append(el('p', 'spek', item.spek));
   kartu.append(el('p', 'harga mono', formatHarga(item.hargaMulai)));
   if (item.catatan) kartu.append(el('p', 'catatan', item.catatan));
 
@@ -171,7 +171,7 @@ function hasilServis(servis) {
 
   if (servis.pesan) kotak.append(el('p', 'servis-pesan', servis.pesan));
 
-  const detail = el('dl', 'servis-detail mono');
+  const detail = el('dl', 'servis-detail');
   for (const [label, nilai] of [
     ['Perangkat', servis.perangkat],
     ['Merk', servis.merk],

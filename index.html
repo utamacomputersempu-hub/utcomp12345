@@ -146,7 +146,8 @@
    </div>
   </section>
 
-  <section id="cod" class="band band-accent">
+  <section id="cod" class="band band-garis">
+    <span class="label">COD Cek Dulu</span>
     <h2>Cek dulu, baru bayar. Sesederhana itu.</h2>
     <p class="lead">
       Kurir datang, kamu buka dusnya, nyalakan, coba. Ada 30 menit buat memastikan.
@@ -164,15 +165,18 @@
     </p>
   </section>
 
-  <section id="etalase" class="band">
+  <section id="etalase" class="band band-panel">
+   <div class="wrap">
+    <span class="label">Etalase rakitan</span>
     <h2>Sebut budget-nya, kami susun speknya</h2>
     <p class="lead">
       Harga di bawah ini titik awal, bukan harga mati. Komponen bisa digeser
       naik-turun sesuai kebutuhan dan isi dompet.
     </p>
     <div id="etalase-isi" class="etalase-isi">
-      <p class="mono etalase-memuat">Memuat daftar rakitan&hellip;</p>
+      <p class="etalase-memuat">Memuat daftar rakitan&hellip;</p>
     </div>
+   </div>
   </section>
 
   <section id="layanan" class="band">
@@ -181,21 +185,37 @@
     <p class="lead">Semua dikerjakan di bengkel sendiri di Jl. Keramat, Panjen. Harga disebut sebelum dikerjakan.</p>
     <div class="layanan-grid">
 
-      <article class="card layanan">
+      <article class="card layanan layanan-utama besar">
+        <img class="layanan-foto" src="img/bengkel.jpg" alt="Bagian dalam toko: meja kerja, rak CPU, dan etalase komponen" width="675" height="900" loading="lazy">
         <span class="pita">Ada nomor tiket</span>
-        <h3>Servis laptop &amp; PC, semua merk</h3>
+        <h3>Servis laptop &amp; PC</h3>
         <ul class="poin">
+          <li>Semua merk ditangani, dikerjakan di bengkel sendiri</li>
           <li>Didiagnosa dulu, biayanya disebut sebelum apa pun dikerjakan</li>
           <li>Dapat kode servis untuk dilacak sendiri dari rumah</li>
           <li>Garansi tertulis di nota, bukan janji lisan</li>
         </ul>
-        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
+        <a class="btn btn-primary btn-kecil" target="_blank" rel="noopener"
            href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20SERVIS.%0APerangkat%3A%20%28Laptop%2FPC%29%0AMerk%3A%20%0AKeluhan%3A%20">Konsultasi servis</a>
       </article>
 
-      <article class="card layanan">
+      <article class="card layanan layanan-utama besar">
+        <img class="layanan-foto" src="img/laptop-second.jpg" alt="Deretan laptop second menyala di atas etalase kaca" width="675" height="900" loading="lazy">
+        <span class="pita">Bisa dicoba di tempat</span>
+        <h3>Laptop baru &amp; second</h3>
+        <ul class="poin">
+          <li>Dicek dan disiapkan dulu sebelum diserahkan</li>
+          <li>Dinyalakan dan bisa dicoba langsung di toko</li>
+          <li>Bisa COD Cek Dulu kalau dikirim ke luar kota</li>
+          <li>Stok second datang dari tukar tambah, kondisinya kami tahu</li>
+        </ul>
+        <a class="btn btn-primary btn-kecil" target="_blank" rel="noopener"
+           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20LAPTOP.%0AKebutuhan%3A%20%0ABudget%3A%20">Tanya stok laptop</a>
+      </article>
+
+      <article class="card layanan sedang">
         <span class="pita">Jawa &amp; Bali</span>
-        <h3>Rakit PC sesuai budget kamu</h3>
+        <h3>Rakit PC sesuai budget</h3>
         <ul class="poin">
           <li>Sebutkan angkanya, speknya kami susunkan</li>
           <li>Komponen bisa digeser naik-turun sesuai kebutuhan</li>
@@ -206,30 +226,19 @@
       </article>
 
       <article class="card layanan">
-        <h3>Laptop baru &amp; second</h3>
-        <ul class="poin">
-          <li>Dicek dan disiapkan dulu sebelum diserahkan</li>
-          <li>Bisa dinyalakan dan dicoba langsung di toko</li>
-          <li>Bisa COD Cek Dulu kalau dikirim ke luar kota</li>
-        </ul>
-        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
-           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20LAPTOP.%0AKebutuhan%3A%20%0ABudget%3A%20">Tanya stok laptop</a>
-      </article>
-
-      <article class="card layanan">
-        <h3>Upgrade tanpa ganti semua</h3>
+        <h3>Upgrade</h3>
         <ul class="poin">
           <li>Sering kali cukup tambah RAM atau pindah ke SSD</li>
-          <li>Kami bilang apa adanya kalau memang belum perlu diupgrade</li>
+          <li>Kami bilang apa adanya kalau memang belum perlu</li>
         </ul>
         <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
            href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20UPGRADE.%0APerangkat%3A%20%0ASpek%20sekarang%3A%20">Tanya upgrade</a>
       </article>
 
       <article class="card layanan">
-        <h3>Sparepart harga terbuka</h3>
+        <h3>Sparepart</h3>
         <ul class="poin">
-          <li>Barangnya bisa dilihat langsung di toko sebelum dipasang</li>
+          <li>Barangnya bisa dilihat langsung sebelum dipasang</li>
           <li>Harga disebut di depan, tidak ada tagihan kejutan</li>
         </ul>
         <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
@@ -237,11 +246,11 @@
       </article>
 
       <article class="card layanan">
-        <h3>CCTV &amp; proyektor, dipasang sampai nyala</h3>
+        <h3>CCTV &amp; proyektor</h3>
         <ul class="poin">
+          <li>Dipasang sampai nyala, bukan cuma dijual</li>
           <li>CCTV rumah, kantor, dan perumahan</li>
           <li>Proyektor dan LCD untuk ruang meeting</li>
-          <li>Bukan cuma dijual, kami yang memasang</li>
         </ul>
         <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
            href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20CCTV%2FPROYEKTOR.%0ALokasi%20pemasangan%3A%20%0AKebutuhan%3A%20">Tanya pemasangan</a>
@@ -368,14 +377,6 @@
         <img class="photo" src="img/plang-toko.jpg" alt="Plang besar Utama Computer di tepi jalan, berisi daftar layanan toko" width="675" height="900" loading="lazy">
         <figcaption class="cap">Plangnya di tepi Jl. Keramat, Panjen &mdash; daftar layanannya terbaca dari jalan</figcaption>
       </figure>
-      <figure class="shot">
-        <img class="photo" src="img/bengkel.jpg" alt="Bagian dalam toko: meja kerja, rak CPU, dan etalase komponen" width="675" height="900" loading="lazy">
-        <figcaption class="cap">Bengkel dan rak stok di dalam toko</figcaption>
-      </figure>
-      <figure class="shot">
-        <img class="photo" src="img/laptop-second.jpg" alt="Deretan laptop second menyala di atas etalase kaca" width="675" height="900" loading="lazy">
-        <figcaption class="cap">Laptop second dinyalakan dulu, bisa dicoba di tempat</figcaption>
-      </figure>
     </div>
    </div>
   </section>
@@ -412,6 +413,9 @@
           <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">Chat admin</a>
           <a class="btn btn-ghost" href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener">Buka di Google Maps</a>
         </p>
+        <iframe class="peta" title="Peta lokasi Utama Computer di Jl. Keramat, Panjen, Sempu"
+                src="https://maps.google.com/maps?q=-8.2975433,114.1277941&amp;z=16&amp;output=embed"
+                width="600" height="380" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </article>
       <article class="card">
         <h3>Tulis keperluanmu, lanjut ke WhatsApp</h3>
@@ -446,15 +450,23 @@
           <p id="wa-galat" class="wa-galat" role="alert" hidden></p>
         </form>
 
-        <h3 class="h3-sub">Belanja lewat marketplace</h3>
-        <ul class="marketplace">
-          <li><a href="https://tk.tokopedia.com/ZSaB3tubw/" target="_blank" rel="noopener">Tokopedia</a></li>
-          <li><a href="https://vt.tiktok.com/ZSaB3gMnH/?page=Mall" target="_blank" rel="noopener">TikTok Shop</a></li>
-          <li><a href="https://shopee.co.id/utcomputer" target="_blank" rel="noopener">Shopee</a></li>
-          <li><a href="https://www.instagram.com/utamacomputersempu/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com/people/Utama-Computer-Sempu/61568482865484/" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
       </article>
+    </div>
+
+    <div class="kanal">
+      <h3>Belanja online atau lihat-lihat dulu</h3>
+      <ul class="kanal-list">
+        <li><a href="https://shopee.co.id/utcomputer" target="_blank" rel="noopener">
+          <strong>Shopee</strong><span>UT-COMP</span></a></li>
+        <li><a href="https://tk.tokopedia.com/ZSaB3tubw/" target="_blank" rel="noopener">
+          <strong>Tokopedia</strong><span>Utama Computer</span></a></li>
+        <li><a href="https://vt.tiktok.com/ZSaB3gMnH/?page=Mall" target="_blank" rel="noopener">
+          <strong>TikTok Shop</strong><span>Utama Computer</span></a></li>
+        <li><a href="https://www.instagram.com/utamacomputersempu/" target="_blank" rel="noopener">
+          <strong>Instagram</strong><span>@utamacomputersempu</span></a></li>
+        <li><a href="https://www.facebook.com/people/Utama-Computer-Sempu/61568482865484/" target="_blank" rel="noopener">
+          <strong>Facebook</strong><span>Utama Computer Sempu</span></a></li>
+      </ul>
     </div>
   </section>
 
@@ -466,7 +478,7 @@
     <img src="img/logo-mark.png" alt="" width="256" height="256" loading="lazy" class="brand-mark">
     Utama Computer
   </p>
-  <p class="mono">Jl. Keramat, Panjen, Jambewangi &middot; Sempu, Banyuwangi &middot; 08.30&ndash;16.30 tiap hari</p>
+  <p class="footer-alamat">Jl. Keramat, Panjen, Jambewangi &middot; Sempu, Banyuwangi &middot; 08.30&ndash;16.30 tiap hari</p>
   <ul class="marketplace marketplace-foot">
     <li><a href="https://tk.tokopedia.com/ZSaB3tubw/" target="_blank" rel="noopener">Tokopedia</a></li>
     <li><a href="https://vt.tiktok.com/ZSaB3gMnH/?page=Mall" target="_blank" rel="noopener">TikTok Shop</a></li>

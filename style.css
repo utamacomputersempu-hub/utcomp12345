@@ -175,7 +175,7 @@ strong { color: var(--tinta); }
 
 .mono { font-family: var(--mono); font-size: 14px; }
 
-.mono-list { font-size: 15px; color: var(--redup); max-width: 64ch; }
+.mono-list { font-size: 16px; color: var(--teks); max-width: 64ch; }
 
 /* baris kepercayaan */
 
@@ -269,10 +269,33 @@ strong { color: var(--tinta); }
 .layanan {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+  padding: 0;
+  overflow: hidden;
 }
 
-.layanan h3 { margin: 0; padding-right: 96px; }
+.layanan > * { margin-left: 22px; margin-right: 22px; }
+
+.layanan > .layanan-foto { margin: 0; }
+
+.layanan > *:first-child { margin-top: 22px; }
+
+.layanan > .layanan-foto:first-child { margin-top: 0; }
+
+.layanan > *:last-child { margin-bottom: 22px; }
+
+.layanan h3 { margin-top: 0; margin-bottom: 0; }
+
+.layanan-foto {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--garis);
+}
+
+.layanan-utama { box-shadow: var(--bayang); }
 
 .poin {
   list-style: none;
@@ -303,17 +326,13 @@ strong { color: var(--tinta); }
 .layanan .btn { align-self: start; margin-top: auto; }
 
 .pita {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  padding: 4px 10px;
-  background: var(--biru-gelap);
-  color: var(--putih);
+  align-self: start;
+  padding: 5px 12px;
+  background: var(--tint);
+  color: var(--biru-gelap);
   border-radius: 999px;
-  font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.04em;
 }
 
 /* cod */
@@ -538,22 +557,15 @@ strong { color: var(--tinta); }
 
 .detail-baris {
   display: grid;
-  grid-template-columns: 104px 1fr;
-  gap: 12px;
-  padding: 10px 0;
+  grid-template-columns: 120px 1fr;
+  gap: 14px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--garis);
 }
 
-.detail-baris dt {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--redup);
-  padding-top: 2px;
-}
+.detail-baris dt { color: var(--redup); font-size: 16px; }
 
-.detail-baris dd { margin: 0; color: var(--tinta); font-size: 15px; }
+.detail-baris dd { margin: 0; color: var(--tinta); font-size: 16px; font-weight: 600; }
 
 /* etalase */
 
@@ -562,15 +574,12 @@ strong { color: var(--tinta); }
 .etalase-kelompok + .etalase-kelompok { margin-top: 36px; }
 
 .kategori {
-  font-family: var(--mono);
-  font-size: 13px;
+  font-size: 19px;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--biru);
+  color: var(--tinta);
   padding-bottom: 10px;
   margin-bottom: 16px;
-  border-bottom: 1px solid var(--garis);
+  border-bottom: 2px solid var(--tint);
 }
 
 .produk {
@@ -603,7 +612,7 @@ strong { color: var(--tinta); }
   text-transform: uppercase;
 }
 
-.produk .spek { color: var(--redup); font-size: 14px; font-family: var(--mono); }
+.produk .spek { color: var(--redup); font-size: 15px; }
 
 .produk .harga { color: var(--tinta); font-size: 19px; font-weight: 800; font-family: var(--head); }
 
@@ -676,22 +685,55 @@ strong { color: var(--tinta); }
 
 .data-list > div {
   display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 12px;
-  padding: 11px 0;
+  grid-template-columns: 116px 1fr;
+  gap: 14px;
+  padding: 13px 0;
   border-bottom: 1px solid var(--garis);
 }
 
-.data-list dt {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--redup);
-  padding-top: 3px;
+.data-list dt { color: var(--redup); font-size: 16px; }
+
+.data-list dd { margin: 0; color: var(--tinta); font-size: 16px; font-weight: 600; }
+
+.peta {
+  display: block;
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+  border: 1px solid var(--garis);
+  border-radius: var(--radius);
 }
 
-.data-list dd { margin: 0; color: var(--tinta); font-size: 15px; }
+/* kanal penjualan */
+
+.kanal { margin-top: 32px; }
+
+.kanal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+.kanal-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 18px;
+  background: var(--putih);
+  border: 1px solid var(--garis-tebal);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--tinta);
+}
+
+.kanal-list a:hover { border-color: var(--biru); background: var(--tint); }
+
+.kanal-list strong { font-size: 17px; font-weight: 700; }
+
+.kanal-list span { font-size: 14px; color: var(--redup); }
 
 .marketplace {
   list-style: none;
@@ -763,7 +805,7 @@ strong { color: var(--tinta); }
   margin-bottom: 8px;
 }
 
-.footer .mono { color: #a9c2d0; }
+.footer-alamat { color: #a9c2d0; font-size: 15px; }
 
 .marketplace-foot { margin-top: 16px; }
 
@@ -782,6 +824,7 @@ strong { color: var(--tinta); }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .photos { grid-template-columns: repeat(2, 1fr); }
   .layanan-grid { grid-template-columns: repeat(2, 1fr); }
+  .layanan-grid .sedang { grid-column: 1 / -1; }
   .proses { grid-template-columns: repeat(2, 1fr); }
   .cod-steps { grid-template-columns: repeat(2, 1fr); }
   .servis-form { grid-template-columns: 1fr 1fr auto; gap: 20px; align-items: end; }
@@ -792,6 +835,7 @@ strong { color: var(--tinta); }
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
   .mozaik { grid-template-columns: repeat(2, 1fr); }
   .mozaik .besar { grid-column: 1 / -1; }
+  .kanal-list { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 1000px) {
@@ -803,7 +847,11 @@ strong { color: var(--tinta); }
   }
   .grid { grid-template-columns: repeat(3, 1fr); }
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .layanan-grid { grid-template-columns: repeat(3, 1fr); }
+  /* bobot sengaja tidak seragam: dua layanan utama lebih lebar dan berfoto */
+  .layanan-grid { grid-template-columns: repeat(6, 1fr); align-items: start; }
+  .layanan-grid .besar { grid-column: span 3; }
+  .layanan-grid .sedang { grid-column: span 6; }
+  .layanan-grid .layanan:not(.besar):not(.sedang) { grid-column: span 2; }
   .proses { grid-template-columns: repeat(4, 1fr); }
   .cod-steps { grid-template-columns: repeat(4, 1fr); }
 }
