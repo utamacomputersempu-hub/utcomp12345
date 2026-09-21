@@ -2,7 +2,13 @@
 const API_BASE = 'https://script.google.com/macros/s/AKfycbx8WwD2U5j29scP6NsoGmIW-fq5XZpgAhNT9nLNkY-RAJ8f3iH-OnxjuVdCa6WvTJAP9A/exec';
 const API_KEY = 'utc_pub_k7m2xq9vz4n8b3rf';
 
-const WA_UMUM = 'https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya';
+// Nomor bawaan. Bisa ditimpa dari tab TEKS lewat kunci "wa".
+let NOMOR_WA = '6285143111146';
+const PESAN_UMUM = 'Halo Utama Computer. saya dari Sosmed mau tanya produknya. Mohon dibantu ya';
+
+function waUrl(pesan) {
+  return `https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(pesan)}`;
+}
 
 // Apps Script perlu 2-3 detik saat dingin. Batas ini memberi ruang untuk itu
 // tapi tetap menyerah sebelum pengunjung mengira halamannya mati.
@@ -36,7 +42,7 @@ function el(tag, className, text) {
 
 function tombolWa(teks) {
   const a = el('a', 'btn btn-primary', teks);
-  a.href = WA_UMUM;
+  a.href = waUrl(PESAN_UMUM);
   a.target = '_blank';
   a.rel = 'noopener';
   const baris = el('p', 'cta-row');
@@ -49,6 +55,50 @@ function blokMemuat(teks) {
   bungkus.append(el('span', 'spinner'));
   bungkus.append(el('span', null, teks));
   return bungkus;
+}
+
+// ---------- Teks dari tab TEKS ----------
+
+// Sheet ini penimpa, bukan sumber satu-satunya. Nilai bawaan yang benar sudah
+// ada di HTML, jadi kalau API gagal, lambat, atau selnya kosong, halaman tetap
+// menampilkan teks yang betul.
+
+function terapkanNomorWa(nilai) {
+  const digit = nilai.replace(/\D/g, '');
+  // Nomor yang jelas salah ketik diabaikan seluruhnya, tampilan maupun tautan,
+  // karena satu sel keliru di spreadsheet bisa mematikan semua tombol WhatsApp
+  // di halaman ini. Menampilkan nomor rusak tapi menautkan yang benar justru
+  // lebih membingungkan daripada tidak berubah sama sekali.
+  if (digit.length < 9 || digit.length > 15) return false;
+
+  NOMOR_WA = digit.startsWith('0') ? '62' + digit.slice(1) : digit;
+
+  for (const a of document.querySelectorAll('a[href^="tel:"]')) {
+    a.href = 'tel:+' + NOMOR_WA;
+  }
+  for (const a of document.querySelectorAll('a[href*="wa.me/"]')) {
+    const url = new URL(a.href);
+    url.pathname = '/' + NOMOR_WA;
+    a.href = url.toString();
+  }
+  return true;
+}
+
+function terapkanTeks(teks) {
+  if (!teks || typeof teks !== 'object') return;
+
+  for (const [kunci, nilai] of Object.entries(teks)) {
+    if (typeof nilai !== 'string') continue;
+    const bersih = nilai.trim();
+    if (!bersih) continue;
+
+    if (kunci === 'wa' && !terapkanNomorWa(bersih)) continue;
+
+    // textContent, bukan innerHTML: isinya diketik manusia di spreadsheet.
+    for (const node of document.querySelectorAll(`[data-teks="${CSS.escape(kunci)}"]`)) {
+      node.textContent = bersih;
+    }
+  }
 }
 
 // ---------- Etalase ----------
@@ -116,7 +166,9 @@ function gambarEtalase(items, wadah) {
   }
 }
 
-async function muatEtalase() {
+// Teks dan etalase datang dari satu panggilan. Apps Script perlu 2-3 detik
+// saat dingin, jadi dua panggilan berarti pengunjung menunggu dua kali.
+async function muatBeranda() {
   const wadah = document.getElementById('etalase-isi');
   if (!wadah) return;
 
@@ -125,6 +177,7 @@ async function muatEtalase() {
   try {
     const data = await apiGet({ action: 'etalase' });
     if (!data.ok) throw new Error(data.error || 'Gagal memuat');
+    terapkanTeks(data.teks);
     gambarEtalase(Array.isArray(data.items) ? data.items : [], wadah);
   } catch (err) {
     const teks = err.name === 'AbortError'
@@ -268,11 +321,10 @@ function siapkanFormWa() {
     }
     galat.hidden = true;
 
-    const teks = `Halo Utama Computer, saya ${nama}.\nKeperluan: ${topik}\n\n${pesan}`;
-    window.open(`https://wa.me/6285143111146?text=${encodeURIComponent(teks)}`, '_blank', 'noopener');
+    window.open(waUrl(`Halo Utama Computer, saya ${nama}.\nKeperluan: ${topik}\n\n${pesan}`), '_blank', 'noopener');
   });
 }
 
-muatEtalase();
+muatBeranda();
 siapkanCekServis();
 siapkanFormWa();

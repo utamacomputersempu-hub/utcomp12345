@@ -87,28 +87,26 @@
   <section class="hero">
    <div class="hero-teks">
     <span class="label">Toko komputer Sempu, Banyuwangi</span>
-    <h1>Beli komputer tanpa takut zonk</h1>
-    <p class="hero-sub">
-      Barang sampai, cek dulu 30 menit. Nggak sreg? Nggak usah bayar.
-      COD Cek Dulu se-Jawa &amp; Bali.
-    </p>
+    <h1 data-teks="hero_judul">Beli komputer tanpa takut zonk</h1>
+    <p class="hero-sub" data-teks="hero_sub">Barang sampai, cek dulu 30 menit. Nggak sreg? Nggak usah bayar. COD Cek Dulu se-Jawa &amp; Bali.</p>
     <p class="cta-row">
       <a class="btn btn-primary" href="#servis">Cek status servis saya</a>
       <a class="btn btn-ghost" href="#layanan">Lihat layanan</a>
     </p>
     <ul class="trustline">
-      <!-- DITULIS MANUAL. Rating dan jumlah ulasan di bawah ini disalin dari
-           profil Google Business, diverifikasi 21 September 2026. Angkanya
-           berubah sendiri tiap ada ulasan baru, jadi perbarui angka DAN
-           keterangan bulannya bersamaan. Jangan pernah menyalin angka ini ke
-           JSON-LD: rating yang ditulis sendiri ke data terstruktur melanggar
-           pedoman Google. -->
+      <!-- Angka di bawah ini NILAI BAWAAN, dipakai kalau sheet belum diisi atau
+           API sedang tidak bisa dihubungi. Pembaruan sehari-hari lewat tab TEKS
+           di spreadsheet (rating_angka, rating_jumlah, rating_per); yang di sini
+           cukup diubah kalau bawaannya sudah jauh meleset. Diverifikasi
+           21 September 2026 di profil Google Business toko.
+           Jangan pernah menyalin angka ini ke JSON-LD: rating yang ditulis
+           sendiri ke data terstruktur melanggar pedoman Google. -->
       <li>&#9733;
-        <a href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener">4,9 dari 27 ulasan Google</a>
-        (per September 2026)
+        <a href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener"><span data-teks="rating_angka">4,9</span> dari <span data-teks="rating_jumlah">27</span> ulasan Google</a>
+        (per <span data-teks="rating_per">September 2026</span>)
       </li>
       <li>Jambewangi (Panjen), Sempu</li>
-      <li>Buka tiap hari 08.30&ndash;16.30</li>
+      <li data-teks="jam_buka">Buka tiap hari 08.30&ndash;16.30</li>
       <li>CV resmi &amp; Siplah support</li>
     </ul>
    </div>
@@ -403,15 +401,15 @@
           </div>
           <div>
             <dt>WhatsApp</dt>
-            <dd><a href="tel:+6285143111146">0851-4311-1146</a></dd>
+            <dd><a href="tel:+6285143111146" data-teks="wa">0851-4311-1146</a></dd>
           </div>
           <div>
             <dt>Jam buka</dt>
-            <dd>Senin&ndash;Minggu, 08.30&ndash;16.30</dd>
+            <dd data-teks="jam_buka">Senin&ndash;Minggu, 08.30&ndash;16.30</dd>
           </div>
           <div>
             <dt>Ulasan</dt>
-            <dd><a href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener">4,9 dari 27 ulasan Google</a></dd>
+            <dd><a href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener"><span data-teks="rating_angka">4,9</span> dari <span data-teks="rating_jumlah">27</span> ulasan Google</a></dd>
           </div>
         </dl>
         <p class="cta-row">
@@ -483,7 +481,7 @@
     <img src="img/logo-mark.png" alt="" width="256" height="256" loading="lazy" class="brand-mark">
     Utama Computer
   </p>
-  <p class="footer-alamat">Jl. Keramat, Panjen, Jambewangi &middot; Sempu, Banyuwangi &middot; 08.30&ndash;16.30 tiap hari</p>
+  <p class="footer-alamat">Jl. Keramat, Panjen, Jambewangi &middot; Sempu, Banyuwangi &middot; <span data-teks="jam_buka">Buka tiap hari 08.30&ndash;16.30</span></p>
   <ul class="marketplace marketplace-foot">
     <li><a href="https://tk.tokopedia.com/ZSaB3tubw/" target="_blank" rel="noopener">Tokopedia</a></li>
     <li><a href="https://vt.tiktok.com/ZSaB3gMnH/?page=Mall" target="_blank" rel="noopener">TikTok Shop</a></li>
