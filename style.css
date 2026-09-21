@@ -62,6 +62,22 @@ strong { color: var(--tinta); }
   margin-bottom: 10px;
 }
 
+/* lewati ke isi */
+
+.lewati {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 40;
+  padding: 10px 16px;
+  background: var(--biru);
+  color: var(--putih);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lewati:focus { left: 0; }
+
 /* topbar */
 
 .topbar {
@@ -76,6 +92,51 @@ strong { color: var(--tinta); }
   padding: 12px 16px;
   background: rgba(255, 255, 255, 0.97);
   border-bottom: 1px solid var(--garis);
+}
+
+/* menu lipat tanpa JavaScript: sakelarnya checkbox tersembunyi, yang
+   diklik labelnya. Dipakai supaya menu tetap bisa dibuka kalau app.js
+   gagal dimuat. */
+
+.menu-sakelar {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.menu-tombol {
+  padding: 8px 14px;
+  border: 1px solid var(--garis-tebal);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--tinta);
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-sakelar:focus-visible + .menu-tombol {
+  outline: 2px solid var(--biru);
+  outline-offset: 2px;
+}
+
+.menu-isi { display: none; width: 100%; }
+
+.menu-sakelar:checked ~ .menu-isi {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--garis);
+}
+
+.topnav a.aktif {
+  color: var(--biru-gelap);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
 }
 
 .brand {
@@ -255,6 +316,68 @@ strong { color: var(--tinta); }
 .card p { margin: 0; color: var(--teks); }
 
 .card-highlight { border-color: var(--biru); box-shadow: var(--bayang); }
+
+/* kartu yang seluruhnya jadi tautan */
+
+.kartu-tautan {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.kartu-tautan:hover { border-color: var(--biru); box-shadow: var(--bayang); }
+
+.kartu-tautan h3 { margin: 0; }
+
+.tautan-lanjut {
+  margin-top: auto;
+  padding-top: 4px;
+  color: var(--biru-gelap);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.kartu-tautan:hover .tautan-lanjut { text-decoration: underline; }
+
+/* blok ajakan: teks di kiri, tombol di kanan */
+
+.ajakan { display: grid; gap: 16px; }
+
+.ajakan .cta-row { margin: 0; }
+
+.ajakan > div > :last-child { margin-bottom: 0; }
+
+/* daftar poin ukuran isi halaman */
+
+.poin-besar { font-size: 17px; gap: 12px; max-width: 70ch; }
+
+.poin-besar li::before { margin-top: 10px; }
+
+.dua-kolom { display: grid; gap: 24px; align-items: start; }
+
+/* halaman cek servis: langsung ke formulirnya */
+
+.band-cek { padding-top: 36px; }
+
+.band-cek .note { margin-top: 28px; max-width: 64ch; }
+
+.kontak-ringkas { display: grid; gap: 20px; align-items: start; }
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 15px;
+}
+
+.footer-nav a { text-decoration: none; }
+
+.footer-nav a:hover { text-decoration: underline; }
 
 .h3-sub { margin-top: 22px; }
 
@@ -818,6 +941,9 @@ strong { color: var(--tinta); }
 .marketplace-foot a:hover { background: rgba(255, 255, 255, 0.16); color: var(--putih); }
 
 @media (min-width: 720px) {
+  .ajakan { grid-template-columns: 1fr auto; align-items: center; gap: 28px; }
+  .dua-kolom { grid-template-columns: 1.15fr 1fr; gap: 32px; }
+  .kontak-ringkas { grid-template-columns: 1fr auto; gap: 28px; }
   .hero, .band { padding: 72px 24px; }
   .band-panel, .band-accent { padding-left: 24px; padding-right: 24px; }
   .footer { padding: 44px 24px 56px; }
@@ -839,6 +965,14 @@ strong { color: var(--tinta); }
 }
 
 @media (min-width: 1000px) {
+  .menu-tombol { display: none; }
+  .menu-isi {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    width: auto;
+  }
   .hero {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;

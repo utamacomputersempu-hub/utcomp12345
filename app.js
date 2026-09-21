@@ -2,6 +2,12 @@
 const API_BASE = 'https://script.google.com/macros/s/AKfycbx8WwD2U5j29scP6NsoGmIW-fq5XZpgAhNT9nLNkY-RAJ8f3iH-OnxjuVdCa6WvTJAP9A/exec';
 const API_KEY = 'utc_pub_k7m2xq9vz4n8b3rf';
 
+// Halaman ada di subfolder (/servis/, /cek/, ...), dan situsnya bisa disajikan
+// dari akar domain maupun dari subfolder seperti github.io/utcomp12345/. Akar
+// dihitung dari alamat app.js sendiri supaya aset tetap ketemu di keduanya.
+const skripIni = document.currentScript || document.querySelector('script[src$="app.js"]');
+const AKAR = new URL('.', skripIni ? skripIni.src : location.href).href;
+
 // Nomor bawaan. Bisa ditimpa dari tab TEKS lewat kunci "wa".
 let NOMOR_WA = '6285143111146';
 const PESAN_UMUM = 'Halo Utama Computer. saya dari Sosmed mau tanya produknya. Mohon dibantu ya';
@@ -110,7 +116,7 @@ function formatHarga(nilai) {
 }
 
 function sumberGambar(url) {
-  return /^https?:\/\//i.test(String(url || '')) ? url : 'img/placeholder.svg';
+  return /^https?:\/\//i.test(String(url || '')) ? url : AKAR + 'img/placeholder.svg';
 }
 
 function kartuProduk(item) {
@@ -147,6 +153,10 @@ function gambarEtalase(items, wadah) {
     wadah.append(pesanEtalase('Daftar rakitan sedang kami susun. Sebutkan saja budget dan kebutuhanmu, kami susunkan speknya.'));
     return;
   }
+
+  // Beranda cuma memajang pratinjau; daftar lengkapnya di /etalase/.
+  const batas = Number(wadah.dataset.batas);
+  if (Number.isFinite(batas) && batas > 0) items = items.slice(0, batas);
 
   // Server sudah mengurutkan. Kelompokkan tanpa mengubah urutan aslinya.
   const kelompok = new Map();
@@ -255,6 +265,20 @@ function siapkanCekServis() {
 
   const wadah = document.getElementById('servis-hasil');
   const tombol = form.querySelector('button[type="submit"]');
+
+  // Alamat halaman ini dicetak di nota servis, jadi ?srv=UT260809002 boleh
+  // mengisi kolom kodenya. Empat digit WhatsApp TIDAK pernah diisi otomatis:
+  // justru itu yang membuktikan yang membuka adalah pemilik barangnya.
+  const srvParam = new URLSearchParams(location.search).get('srv');
+  if (srvParam) {
+    const kode = srvParam.trim().toUpperCase();
+    // Parameter ngawur diabaikan diam-diam, tanpa pesan error.
+    if (/^[A-Z0-9-]{4,20}$/.test(kode)) {
+      form.elements.srv.value = kode;
+      form.elements.wa.focus();
+    }
+  }
+
   const labelTombol = tombol.textContent;
   let berjalan = false;
 

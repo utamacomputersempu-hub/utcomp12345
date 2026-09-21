@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://utamacomputer.id/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://utamacomputer.id/servis/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://utamacomputer.id/cek/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://utamacomputer.id/komputer/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://utamacomputer.id/etalase/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://utamacomputer.id/cctv/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://utamacomputer.id/pengadaan/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://utamacomputer.id/kontak/</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>

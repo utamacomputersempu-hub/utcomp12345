@@ -11,7 +11,7 @@
 <meta property="og:locale" content="id_ID">
 <meta property="og:url" content="https://utamacomputer.id/">
 <meta property="og:title" content="Utama Computer — Servis &amp; Rakit PC di Sempu, Banyuwangi">
-<meta property="og:description" content="COD Cek Dulu se-Jawa &amp; Bali: barang sampai, cek dulu 30 menit, baru bayar. Servis semua merk, rakit PC sesuai budget, CCTV, dan pengadaan sekolah.">
+<meta property="og:description" content="Servis komputer dan laptop, rakit PC sesuai budget, CCTV, dan pengadaan sekolah di Sempu, Banyuwangi. COD Cek Dulu se-Jawa &amp; Bali: cek barangnya dulu 30 menit, baru bayar.">
 <meta property="og:image" content="https://utamacomputer.id/img/plang-toko.jpg">
 <meta property="og:image:alt" content="Plang Utama Computer di tepi Jl. Keramat, Panjen, Sempu">
 <meta name="twitter:card" content="summary_large_image">
@@ -66,23 +66,41 @@
 </head>
 <body>
 
+<!-- ==== AWAL BLOK BERSAMA: HEADER ====================================
+     Blok ini SAMA PERSIS di kedelapan halaman. Tidak ada langkah build,
+     jadi kalau menu berubah, ubah di KEDELAPAN berkas ini:
+       index.html, servis/, cek/, komputer/, etalase/, cctv/,
+       pengadaan/, kontak/
+     Yang berbeda antar halaman hanya satu: tautan halaman yang sedang
+     dibuka memakai class="aktif" dan aria-current="page".
+     Menu lipat di HP memakai checkbox, bukan JavaScript, supaya tetap
+     bisa dibuka kalau skripnya gagal dimuat.
+     ================================================================== -->
+<a class="lewati" href="#isi">Lewati ke isi</a>
 <header class="topbar">
-  <a class="brand" href="#">
+  <a class="brand" href="./">
     <img src="img/logo-mark.png" alt="" width="256" height="256" class="brand-mark">
     <span class="brand-text">Utama <span>Computer</span></span>
   </a>
-  <nav class="topnav">
-    <a href="#servis">Cek Servis</a>
-    <a href="#layanan">Layanan</a>
-    <a href="#cod">COD Cek Dulu</a>
-    <a href="#etalase">Etalase</a>
-    <a href="#pengadaan">Pengadaan</a>
-    <a href="#kontak">Kontak</a>
+  <input class="menu-sakelar" type="checkbox" id="menu-sakelar">
+  <label class="menu-tombol" for="menu-sakelar">Menu</label>
+  <div class="menu-isi">
+    <nav class="topnav" aria-label="Menu utama">
+      <a class="aktif" aria-current="page" href="./">Beranda</a>
+      <a href="servis/">Servis</a>
+      <a href="cek/">Cek Servis</a>
+      <a href="komputer/">Komputer</a>
+      <a href="etalase/">Etalase</a>
+      <a href="cctv/">CCTV</a>
+      <a href="pengadaan/">Pengadaan</a>
+      <a href="kontak/">Kontak</a>
+    </nav>
     <a class="nav-wa" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">WhatsApp</a>
-  </nav>
+  </div>
 </header>
+<!-- ==== AKHIR BLOK BERSAMA: HEADER ================================== -->
 
-<main>
+<main id="isi">
 
   <section class="hero">
    <div class="hero-teks">
@@ -90,15 +108,13 @@
     <h1 data-teks="hero_judul">Beli komputer tanpa takut zonk</h1>
     <p class="hero-sub" data-teks="hero_sub">Barang sampai, cek dulu 30 menit. Nggak sreg? Nggak usah bayar. COD Cek Dulu se-Jawa &amp; Bali.</p>
     <p class="cta-row">
-      <a class="btn btn-primary" href="#servis">Cek status servis saya</a>
-      <a class="btn btn-ghost" href="#layanan">Lihat layanan</a>
+      <a class="btn btn-primary" href="cek/">Cek status servis saya</a>
+      <a class="btn btn-ghost" href="servis/">Lihat layanan servis</a>
     </p>
     <ul class="trustline">
       <!-- Angka di bawah ini NILAI BAWAAN, dipakai kalau sheet belum diisi atau
            API sedang tidak bisa dihubungi. Pembaruan sehari-hari lewat tab TEKS
-           di spreadsheet (rating_angka, rating_jumlah, rating_per); yang di sini
-           cukup diubah kalau bawaannya sudah jauh meleset. Diverifikasi
-           21 September 2026 di profil Google Business toko.
+           di spreadsheet (rating_angka, rating_jumlah, rating_per).
            Jangan pernah menyalin angka ini ke JSON-LD: rating yang ditulis
            sendiri ke data terstruktur melanggar pedoman Google. -->
       <li>&#9733;
@@ -115,239 +131,96 @@
    </figure>
   </section>
 
-  <section id="servis" class="band band-accent">
+  <section class="band band-garis">
+    <span class="label">Yang kami kerjakan</span>
+    <h2>Tiga pekerjaan utama</h2>
+    <p class="lead">Semua dikerjakan di bengkel sendiri di Jl. Keramat, Panjen. Harga disebut sebelum dikerjakan.</p>
+    <div class="grid">
+      <a class="card kartu-tautan" href="servis/">
+        <h3>Servis laptop &amp; PC</h3>
+        <p>Semua merk. Didiagnosa dulu, biayanya disebut sebelum dikerjakan, dan kamu dapat kode servis untuk dilacak sendiri.</p>
+        <span class="tautan-lanjut">Selengkapnya</span>
+      </a>
+      <a class="card kartu-tautan" href="komputer/">
+        <h3>PC rakitan &amp; laptop</h3>
+        <p>Sebutkan budget, speknya kami susunkan. Laptop baru dan second dicek dulu sebelum diserahkan, dan bisa COD Cek Dulu.</p>
+        <span class="tautan-lanjut">Selengkapnya</span>
+      </a>
+      <a class="card kartu-tautan" href="cctv/">
+        <h3>CCTV &amp; proyektor</h3>
+        <p>Untuk rumah, kantor, dan perumahan. Bukan cuma dijual, kami yang memasang sampai nyala.</p>
+        <span class="tautan-lanjut">Selengkapnya</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="band band-accent">
    <div class="wrap">
-    <span class="label">Cuma ada di sini</span>
-    <h2>Lacak servismu sendiri, tanpa nunggu dibalas chat</h2>
-    <p class="lead">
-      Masukin kode servis dari notamu, langsung kelihatan sampai mana pengerjaannya.
-      Bisa dicek kapan saja, termasuk di luar jam buka toko.
-    </p>
-
-    <form id="form-servis" class="servis-form" novalidate>
-      <div class="isian">
-        <label for="srv">Kode servis</label>
-        <input id="srv" name="srv" type="text" inputmode="latin" autocomplete="off"
-               placeholder="UT260809002" maxlength="20" spellcheck="false">
-        <small>Ada di nota servismu.</small>
-      </div>
-      <div class="isian">
-        <label for="wa">4 digit terakhir WhatsApp</label>
-        <input id="wa" name="wa" type="text" inputmode="numeric" autocomplete="off"
-               placeholder="0342" maxlength="4" pattern="[0-9]{4}">
-        <small>Nomor yang kamu pakai waktu menyerahkan barang.</small>
-      </div>
-      <button type="submit" class="btn btn-primary">Cek status</button>
-    </form>
-
-    <div id="servis-hasil" class="servis-wadah" aria-live="polite"></div>
+    <div class="ajakan">
+     <div>
+      <span class="label">Cuma ada di sini</span>
+      <h2>Lacak servismu sendiri, tanpa nunggu dibalas chat</h2>
+      <p class="lead">
+        Punya nota servis dari kami? Kodenya bisa langsung kamu cek sendiri,
+        kapan saja, termasuk di luar jam buka toko.
+      </p>
+     </div>
+     <p class="cta-row">
+       <a class="btn btn-primary" href="cek/">Buka halaman cek servis</a>
+     </p>
+    </div>
    </div>
   </section>
 
-  <section id="cod" class="band band-garis">
-    <span class="label">COD Cek Dulu</span>
-    <h2>Cek dulu, baru bayar. Sesederhana itu.</h2>
-    <p class="lead">
-      Kurir datang, kamu buka dusnya, nyalakan, coba. Ada 30 menit buat memastikan.
-      Cocok, baru keluar uang. Ada masalah, langsung kami tangani.
-    </p>
-    <ol class="cod-steps">
-      <li><span class="num">01</span> Kurir datang bawa barangnya</li>
-      <li><span class="num">02</span> Buka dus, nyalakan, coba</li>
-      <li><span class="num">03</span> 30 menit buat memastikan</li>
-      <li><span class="num">04</span> Cocok, baru keluar uang</li>
-    </ol>
-    <p class="note">Maksimal 1 set komputer (PC + monitor + kelengkapan). Berlaku Pulau Jawa &amp; Bali.</p>
-    <p class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">Chat admin untuk order COD Cek Dulu</a>
-    </p>
-  </section>
-
-  <section id="etalase" class="band band-panel">
-   <div class="wrap">
-    <span class="label">Etalase rakitan</span>
+  <section class="band">
+    <span class="label">Etalase</span>
     <h2>Sebut budget-nya, kami susun speknya</h2>
     <p class="lead">
       Harga di bawah ini titik awal, bukan harga mati. Komponen bisa digeser
       naik-turun sesuai kebutuhan dan isi dompet.
     </p>
-    <div id="etalase-isi" class="etalase-isi">
+    <div id="etalase-isi" class="etalase-isi" data-batas="4">
       <p class="etalase-memuat">Memuat daftar rakitan&hellip;</p>
     </div>
-   </div>
-  </section>
-
-  <section id="layanan" class="band">
-    <span class="label">Yang kami kerjakan</span>
-    <h2>Layanan</h2>
-    <p class="lead">Semua dikerjakan di bengkel sendiri di Jl. Keramat, Panjen. Harga disebut sebelum dikerjakan.</p>
-    <div class="layanan-grid">
-
-      <article class="card layanan layanan-utama besar">
-        <img class="layanan-foto" src="img/bengkel.jpg" alt="Bagian dalam toko: meja kerja, rak CPU, dan etalase komponen" width="675" height="900" loading="lazy">
-        <span class="pita">Ada nomor tiket</span>
-        <h3>Servis laptop &amp; PC</h3>
-        <ul class="poin">
-          <li>Semua merk ditangani, dikerjakan di bengkel sendiri</li>
-          <li>Didiagnosa dulu, biayanya disebut sebelum apa pun dikerjakan</li>
-          <li>Dapat kode servis untuk dilacak sendiri dari rumah</li>
-          <li>Garansi tertulis di nota, bukan janji lisan</li>
-        </ul>
-        <a class="btn btn-primary btn-kecil" target="_blank" rel="noopener"
-           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20SERVIS.%0APerangkat%3A%20%28Laptop%2FPC%29%0AMerk%3A%20%0AKeluhan%3A%20">Konsultasi servis</a>
-      </article>
-
-      <article class="card layanan layanan-utama besar">
-        <img class="layanan-foto" src="img/laptop-second.jpg" alt="Deretan laptop second menyala di atas etalase kaca" width="675" height="900" loading="lazy">
-        <span class="pita">Bisa dicoba di tempat</span>
-        <h3>Laptop baru &amp; second</h3>
-        <ul class="poin">
-          <li>Dicek dan disiapkan dulu sebelum diserahkan</li>
-          <li>Dinyalakan dan bisa dicoba langsung di toko</li>
-          <li>Bisa COD Cek Dulu kalau dikirim ke luar kota</li>
-          <li>Stok second datang dari tukar tambah, kondisinya kami tahu</li>
-        </ul>
-        <a class="btn btn-primary btn-kecil" target="_blank" rel="noopener"
-           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20LAPTOP.%0AKebutuhan%3A%20%0ABudget%3A%20">Tanya stok laptop</a>
-      </article>
-
-      <article class="card layanan sedang">
-        <span class="pita">Jawa &amp; Bali</span>
-        <h3>Rakit PC sesuai budget</h3>
-        <ul class="poin">
-          <li>Sebutkan angkanya, speknya kami susunkan</li>
-          <li>Komponen bisa digeser naik-turun sesuai kebutuhan</li>
-          <li>Bisa dikirim dengan COD Cek Dulu, cek barangnya sebelum bayar</li>
-        </ul>
-        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
-           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20RAKIT%20PC.%0ABudget%3A%20%0APemakaian%3A%20%28office%2Fgaming%2Fediting%2Fkasir%29">Minta susunan spek</a>
-      </article>
-
-      <article class="card layanan">
-        <h3>Upgrade</h3>
-        <ul class="poin">
-          <li>Sering kali cukup tambah RAM atau pindah ke SSD</li>
-          <li>Kami bilang apa adanya kalau memang belum perlu</li>
-        </ul>
-        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
-           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20UPGRADE.%0APerangkat%3A%20%0ASpek%20sekarang%3A%20">Tanya upgrade</a>
-      </article>
-
-      <article class="card layanan">
-        <h3>Sparepart</h3>
-        <ul class="poin">
-          <li>Barangnya bisa dilihat langsung sebelum dipasang</li>
-          <li>Harga disebut di depan, tidak ada tagihan kejutan</li>
-        </ul>
-        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
-           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20SPAREPART.%0ABarang%3A%20%0AUntuk%20perangkat%3A%20">Tanya sparepart</a>
-      </article>
-
-      <article class="card layanan">
-        <h3>CCTV &amp; proyektor</h3>
-        <ul class="poin">
-          <li>Dipasang sampai nyala, bukan cuma dijual</li>
-          <li>CCTV rumah, kantor, dan perumahan</li>
-          <li>Proyektor dan LCD untuk ruang meeting</li>
-        </ul>
-        <a class="btn btn-ghost btn-kecil" target="_blank" rel="noopener"
-           href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20tanya%20CCTV%2FPROYEKTOR.%0ALokasi%20pemasangan%3A%20%0AKebutuhan%3A%20">Tanya pemasangan</a>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="pengadaan" class="band band-panel">
-   <div class="wrap">
-    <span class="label">Sekolah, yayasan, kantor</span>
-    <h2>Butuh komputer buat sekolah? Kami punya CV, bukan cuma niat baik.</h2>
-    <p class="lead">
-      Penawaran, invoice, kwitansi, surat jalan &mdash; lengkap. <strong>Siplah support.</strong>
-      Melayani pengadaan sekolah, yayasan, kantor, dan instansi.
-    </p>
-    <p class="mono-list">
-      Ruang lingkup: PC rakitan (office, kasir, editing, gaming), laptop baru &amp; second,
-      monitor, printer, UPS, CCTV, serta jasa perakitan dan instalasi.
-    </p>
-    <p>Spesifikasi bisa didiskusikan sebelum pengadaan. Ada dukungan teknis dan after-sales.</p>
     <p class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">Minta penawaran pengadaan</a>
+      <a class="btn btn-ghost" href="etalase/">Lihat etalase lengkap</a>
     </p>
-   </div>
-  </section>
-
-  <section id="tukar-tambah" class="band">
-    <span class="label">Tukar tambah</span>
-    <h2>Komputer nganggur itu bukan kenangan. Itu uang muka.</h2>
-    <p class="lead">
-      PC, laptop, monitor, printer, proyektor, sparepart &mdash; bahkan rongsokan ex kantor
-      dan ex sekolah. Kirim foto dan spesifikasinya, kami hargai.
-    </p>
-    <p class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer%2C%20saya%20mau%20TAWARKAN%20KOMPUTER%2FLAPTOP%20SECOND.%0AJenis%3A%20%28PC%2FLaptop%2FMonitor%2FPrinter%2FSparepart%29%0ASpesifikasi%3A%20%0AKondisi%3A%20%0ALokasi%3A%20%0A%0ASaya%20akan%20kirim%20foto%20ya." target="_blank" rel="noopener">Tawarkan komputer second kamu</a>
-    </p>
-    <div class="photos">
-      <figure class="shot">
-        <img class="photo" src="img/monitor-second.jpg" alt="Tumpukan monitor Dell bekas kantor yang ditata di lantai" width="692" height="900" loading="lazy">
-        <figcaption class="cap">Monitor eks kantor yang masuk lewat tukar tambah</figcaption>
-      </figure>
-      <figure class="shot">
-        <img class="photo" src="img/proyektor-second.jpg" alt="Enam proyektor Epson bekas ditumpuk" width="677" height="900" loading="lazy">
-        <figcaption class="cap">Proyektor eks kantor dan sekolah</figcaption>
-      </figure>
-    </div>
   </section>
 
   <section class="band band-panel">
    <div class="wrap">
-    <div class="grid grid-2">
-      <article class="card">
-        <h3>Butuh sekarang, bayarnya nanti</h3>
-        <p>Shopee PayLater, Kredivo, dan opsi lain sesuai akunmu.</p>
-      </article>
-      <article class="card">
-        <h3>Sudah beli komputernya. Sekalian bisa makainya</h3>
-        <p>Word, Excel, PowerPoint, internet dan dasar komputer, desain grafis dan editing. Buat pelajar, karyawan, atau siapa saja.</p>
-      </article>
+    <span class="label">Tokonya ada, orangnya ada</span>
+    <h2>Masih ragu? Datang saja dulu.</h2>
+    <p class="lead">
+      Tanya-tanya tanpa harus beli itu hal biasa di sini. Alamat kami jelas,
+      tokonya benar berdiri di tepi jalan, dan bisa dilihat di
+      <a href="kontak/">halaman kontak</a>.
+    </p>
+    <div class="mozaik">
+      <figure class="shot besar">
+        <img class="photo" src="img/plang-toko.jpg" alt="Plang besar Utama Computer di tepi jalan, berisi daftar layanan toko" width="675" height="900" loading="lazy">
+        <figcaption class="cap">Plangnya di tepi Jl. Keramat, Panjen &mdash; daftar layanannya terbaca dari jalan</figcaption>
+      </figure>
+      <figure class="shot">
+        <img class="photo" src="img/bengkel.jpg" alt="Bagian dalam toko: meja kerja, rak CPU, dan etalase komponen" width="675" height="900" loading="lazy">
+        <figcaption class="cap">Bengkel dan rak stok di dalam toko</figcaption>
+      </figure>
+      <figure class="shot">
+        <img class="photo" src="img/laptop-second.jpg" alt="Deretan laptop second menyala di atas etalase kaca" width="675" height="900" loading="lazy">
+        <figcaption class="cap">Laptop second dinyalakan dulu, bisa dicoba di tempat</figcaption>
+      </figure>
     </div>
    </div>
   </section>
 
-  <section id="proses" class="band">
-    <span class="label">Alur kerja</span>
-    <h2>Prosesnya begini</h2>
-    <ol class="proses">
-      <li>
-        <span class="num">01</span>
-        <h3>Cerita keluhannya</h3>
-        <p>Lewat WhatsApp atau datang langsung. Gratis, tidak wajib jadi.</p>
-      </li>
-      <li>
-        <span class="num">02</span>
-        <h3>Diagnosa &amp; harga</h3>
-        <p>Kami sebutkan biayanya sebelum apa pun dikerjakan. Kamu yang putuskan.</p>
-      </li>
-      <li>
-        <span class="num">03</span>
-        <h3>Dikerjakan &amp; diuji</h3>
-        <p>Kamu dapat nomor tiket untuk memantau sendiri dari rumah.</p>
-      </li>
-      <li>
-        <span class="num">04</span>
-        <h3>Ambil + garansi</h3>
-        <p>Garansi tertulis di nota, bukan janji lisan.</p>
-      </li>
-    </ol>
-  </section>
-
-  <section id="testimoni" class="band">
+  <section class="band band-garis">
+    <span class="label">Ulasan Google</span>
+    <h2>Kata mereka yang sudah ke sini</h2>
     <!-- KUTIPAN ASLI. Ketiganya disalin apa adanya dari ulasan Google toko ini,
          termasuk ejaan dan tanda bacanya, dengan nama penulis aslinya. Tiap
          kutipan bertaut ke halaman ulasannya supaya bisa dicek sendiri.
          JANGAN menambah kutipan yang tidak ada di halaman ulasan itu, dan
          jangan mengganti nama penulis dengan nama lain. -->
-    <span class="label">Ulasan Google</span>
-    <h2>Kata mereka yang sudah ke sini</h2>
     <div class="grid">
       <figure class="card quote">
         <p class="stars" aria-label="5 dari 5 bintang">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
@@ -369,123 +242,49 @@
 
   <section class="band band-panel">
    <div class="wrap">
-    <span class="label">Tokonya ada, orangnya ada</span>
-    <h2>Masih ragu? Datang saja dulu.</h2>
-    <p class="lead">
-      Tanya-tanya tanpa harus beli itu hal biasa di sini. Alamat kami jelas
-      dan tokonya benar berdiri di tepi jalan.
-    </p>
-    <div class="mozaik">
-      <figure class="shot besar">
-        <img class="photo" src="img/plang-toko.jpg" alt="Plang besar Utama Computer di tepi jalan, berisi daftar layanan toko" width="675" height="900" loading="lazy">
-        <figcaption class="cap">Plangnya di tepi Jl. Keramat, Panjen &mdash; daftar layanannya terbaca dari jalan</figcaption>
-      </figure>
+    <span class="label">Alamat &amp; jam buka</span>
+    <h2>Datang, telepon, atau chat</h2>
+    <div class="kontak-ringkas">
+      <dl class="data-list">
+        <div><dt>Alamat</dt><dd>Jl. Keramat, Panjen, Jambewangi<br>Kec. Sempu, Kab. Banyuwangi, Jawa Timur 68468</dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="tel:+6285143111146">0851-4311-1146</a></dd></div>
+        <div><dt>Jam buka</dt><dd data-teks="jam_buka">Senin&ndash;Minggu, 08.30&ndash;16.30</dd></div>
+      </dl>
+      <p class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">Chat admin</a>
+        <a class="btn btn-ghost" href="kontak/">Peta &amp; formulir</a>
+      </p>
     </div>
    </div>
   </section>
-
-  <section id="kontak" class="band">
-    <span class="label">Alamat &amp; jam buka</span>
-    <h2>Kontak &amp; lokasi</h2>
-    <div class="kontak-grid">
-      <article class="card">
-        <h3>Toko</h3>
-        <dl class="data-list">
-          <div>
-            <dt>Alamat</dt>
-            <dd>Jl. Keramat, Panjen, Jambewangi<br>Kec. Sempu, Kab. Banyuwangi<br>Jawa Timur 68468</dd>
-          </div>
-          <div>
-            <dt>Plus Code</dt>
-            <dd class="mono">P42H+W2J</dd>
-          </div>
-          <div>
-            <dt>WhatsApp</dt>
-            <dd><a href="tel:+6285143111146" data-teks="wa">0851-4311-1146</a></dd>
-          </div>
-          <div>
-            <dt>Jam buka</dt>
-            <dd data-teks="jam_buka">Senin&ndash;Minggu, 08.30&ndash;16.30</dd>
-          </div>
-          <div>
-            <dt>Ulasan</dt>
-            <dd><a href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener"><span data-teks="rating_angka">4,9</span> dari <span data-teks="rating_jumlah">27</span> ulasan Google</a></dd>
-          </div>
-        </dl>
-        <p class="cta-row">
-          <a class="btn btn-primary" href="https://wa.me/6285143111146?text=Halo%20Utama%20Computer.%20saya%20dari%20Sosmed%20mau%20tanya%20produknya.%20Mohon%20dibantu%20ya" target="_blank" rel="noopener">Chat admin</a>
-          <a class="btn btn-ghost" href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener">Buka di Google Maps</a>
-        </p>
-        <iframe class="peta" title="Peta lokasi Utama Computer di Jl. Keramat, Panjen, Sempu"
-                src="https://maps.google.com/maps?q=-8.2975433,114.1277941&amp;z=16&amp;output=embed"
-                width="600" height="380" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </article>
-      <article class="card">
-        <h3>Tulis keperluanmu, lanjut ke WhatsApp</h3>
-        <p class="kontak-catatan">
-          Formulir ini tidak mengirim apa pun ke server kami. Isinya cuma disusun
-          jadi pesan WhatsApp, lalu kamu yang menekan kirim.
-        </p>
-        <form id="form-wa" class="wa-form" novalidate>
-          <div class="isian">
-            <label for="wa-nama">Nama</label>
-            <input id="wa-nama" name="nama" type="text" autocomplete="name" placeholder="Nama kamu">
-          </div>
-          <div class="isian">
-            <label for="wa-topik">Keperluan</label>
-            <select id="wa-topik" name="topik">
-              <option>Servis laptop / PC</option>
-              <option>Rakit PC</option>
-              <option>Laptop baru / second</option>
-              <option>Sparepart</option>
-              <option>CCTV / proyektor</option>
-              <option>Tukar tambah</option>
-              <option>Pengadaan sekolah / instansi</option>
-              <option>Pelatihan komputer</option>
-              <option>Lainnya</option>
-            </select>
-          </div>
-          <div class="isian">
-            <label for="wa-pesan">Ceritakan singkat</label>
-            <textarea id="wa-pesan" name="pesan" placeholder="Misalnya: laptop Asus mati total, lampu indikator nyala tapi layar gelap."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Buka WhatsApp</button>
-          <p id="wa-galat" class="wa-galat" role="alert" hidden></p>
-        </form>
-
-      </article>
-    </div>
-
-    <div class="kanal">
-      <h3>Belanja online atau lihat-lihat dulu</h3>
-      <ul class="kanal-list">
-        <li><a href="https://shopee.co.id/utcomputer" target="_blank" rel="noopener">
-          <strong>Shopee</strong><span>UT-COMP</span></a></li>
-        <li><a href="https://tk.tokopedia.com/ZSaB3tubw/" target="_blank" rel="noopener">
-          <strong>Tokopedia</strong><span>Utama Computer</span></a></li>
-        <li><a href="https://vt.tiktok.com/ZSaB3gMnH/?page=Mall" target="_blank" rel="noopener">
-          <strong>TikTok Shop</strong><span>Utama Computer</span></a></li>
-        <li><a href="https://www.instagram.com/utamacomputersempu/" target="_blank" rel="noopener">
-          <strong>Instagram</strong><span>@utamacomputersempu</span></a></li>
-        <li><a href="https://www.facebook.com/people/Utama-Computer-Sempu/61568482865484/" target="_blank" rel="noopener">
-          <strong>Facebook</strong><span>Utama Computer Sempu</span></a></li>
-      </ul>
-    </div>
-  </section>
-
 </main>
 
+<!-- ==== AWAL BLOK BERSAMA: FOOTER ====================================
+     Sama persis di kedelapan halaman. Lihat catatan di blok header.
+     ================================================================== -->
 <footer class="footer">
  <div class="footer-isi">
   <p class="brand-foot">
     <img src="img/logo-mark.png" alt="" width="256" height="256" loading="lazy" class="brand-mark">
     Utama Computer
   </p>
-  <p class="footer-alamat">Jl. Keramat, Panjen, Jambewangi &middot; Sempu, Banyuwangi &middot; <span data-teks="jam_buka">Buka tiap hari 08.30&ndash;16.30</span></p>
+  <p class="footer-alamat">Jl. Keramat, Panjen, Jambewangi &middot; Kec. Sempu, Banyuwangi &middot; <span data-teks="jam_buka">Buka tiap hari 08.30&ndash;16.30</span></p>
+
+  <nav class="footer-nav" aria-label="Semua halaman">
+    <a href="./">Beranda</a>
+    <a href="servis/">Servis Laptop &amp; PC</a>
+    <a href="cek/">Cek Status Servis</a>
+    <a href="komputer/">PC Rakitan &amp; Laptop</a>
+    <a href="etalase/">Etalase</a>
+    <a href="cctv/">CCTV &amp; Proyektor</a>
+    <a href="pengadaan/">Pengadaan Instansi</a>
+    <a href="kontak/">Kontak &amp; Lokasi</a>
+  </nav>
+
   <ul class="marketplace marketplace-foot">
+    <li><a href="https://shopee.co.id/utcomputer" target="_blank" rel="noopener">Shopee</a></li>
     <li><a href="https://tk.tokopedia.com/ZSaB3tubw/" target="_blank" rel="noopener">Tokopedia</a></li>
     <li><a href="https://vt.tiktok.com/ZSaB3gMnH/?page=Mall" target="_blank" rel="noopener">TikTok Shop</a></li>
-    <li><a href="https://shopee.co.id/utcomputer" target="_blank" rel="noopener">Shopee</a></li>
     <li><a href="https://www.instagram.com/utamacomputersempu/" target="_blank" rel="noopener">Instagram</a></li>
     <li><a href="https://www.facebook.com/people/Utama-Computer-Sempu/61568482865484/" target="_blank" rel="noopener">Facebook</a></li>
     <li><a href="https://maps.google.com/?cid=14573424651252202756" target="_blank" rel="noopener">Google Maps</a></li>
@@ -493,6 +292,7 @@
   </ul>
  </div>
 </footer>
+<!-- ==== AKHIR BLOK BERSAMA: FOOTER ================================== -->
 
 </body>
 </html>
